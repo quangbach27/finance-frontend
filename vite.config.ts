@@ -13,6 +13,7 @@ export default defineConfig({
       "@redux": path.resolve(__dirname, "src/redux"),
       "@configs": path.resolve(__dirname, "src/configs"),
       "@utils": path.resolve(__dirname, "src/utils"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
 });

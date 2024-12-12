@@ -29,6 +29,7 @@
       "@redux/*": ["src/redux/*"],
       "@configs/*": ["src/configs/*"],
       "@context/*": ["src/context/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@/*": ["src/*"]
     }
   },

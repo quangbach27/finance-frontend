@@ -12,17 +12,21 @@ import {
 import storage from "redux-persist/lib/storage";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { rootAPI } from "./services/rootAPI";
+import { settingReducer } from "./slices/settingSlice";
+import { authReducer } from "./slices/authSlice";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: [rootAPI.reducerPath],
+  blacklist: [rootAPI.reducerPath, "setting"],
 };
 
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
+    auth: authReducer,
+    setting: settingReducer,
     [rootAPI.reducerPath]: rootAPI.reducer,
   }),
 );
