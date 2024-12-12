@@ -11,15 +11,21 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { useDispatch, useSelector, useStore } from "react-redux";
+import { rootAPI } from "./services/rootAPI";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: [],
+  blacklist: [rootAPI.reducerPath],
 };
 
-const persistedReducer = persistReducer(persistConfig, combineReducers({}));
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers({
+    [rootAPI.reducerPath]: rootAPI.reducer,
+  }),
+);
 
 export const store = configureStore({
   reducer: persistedReducer,
