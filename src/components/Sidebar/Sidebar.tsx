@@ -5,10 +5,13 @@ import { Lock, Translate, Wallet, LocalAtm } from "@mui/icons-material";
 import { Drawer, List, ListSubheader } from "@mui/material";
 import { settingCreator, settingSelector } from "@redux/slices/settingSlice";
 import { useAppDispatch, useAppSelector } from "@redux/store";
+import clsx from "clsx";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useRoutes } from "react-router-dom";
 
 const SidebarContent = () => {
+  const { pathname } = useLocation();
+
   const renderListItemCluster = (
     items: Array<{
       title: string;
@@ -23,7 +26,10 @@ const SidebarContent = () => {
       )}
       {items.map(({ title, url, Icon }, index) => (
         <Link
-          className="flex items-center gap-2 px-4 py-2 hover:bg-slate-200"
+          className={clsx(
+            "flex items-center gap-2 px-4 py-2 hover:bg-slate-200",
+            { "bg-slate-200 text-slate-600": url === pathname },
+          )}
           key={`${title}-${index}`}
           to={url}
         >
