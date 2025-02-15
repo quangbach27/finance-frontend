@@ -2,13 +2,9 @@
 import useDevice from '@/hooks/useDevice';
 import clsx from 'clsx';
 import {
-    Radius,
-    WalletMinimal,
-    Banknote,
     Menu,
     Home,
     BarChart2,
-    Receipt,
     Wallet,
     ReceiptText,
     Mail,

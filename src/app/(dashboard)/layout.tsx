@@ -1,10 +1,11 @@
 import AppHeader from '@components/common/AppHeader';
 import AppSidebar from '@components/common/AppSidebar';
 
-type Props = {
+export default function RootLayout({
+    children
+}: {
     children: React.ReactNode;
-};
-export default function RootLayout({ children }: Props) {
+}) {
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
